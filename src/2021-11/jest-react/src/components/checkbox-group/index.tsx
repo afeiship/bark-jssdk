@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const CheckboxGroup = (props: any) => {
-  console.log('props', props);
-  return <div>
-    <strong>checkbox-group</strong>
-    <input type='checkbox' />
-  </div>;
+type Props = {
+  labelOn: string;
+  labelOff: string;
+};
+
+export const CheckboxGroup = ({ labelOn, labelOff }: Props) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const onChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  return (
+    <label>
+      <input type="checkbox" checked={isChecked} onChange={onChange} />
+      {isChecked ? labelOn : labelOff}
+    </label>
+  );
 };
