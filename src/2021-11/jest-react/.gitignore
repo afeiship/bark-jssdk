@@ -1,0 +1,8 @@
+node_modules/
+public/bundle.js
+dist/
+package-lock.json
+yarn.lock
+
+.idea
+.vscode
