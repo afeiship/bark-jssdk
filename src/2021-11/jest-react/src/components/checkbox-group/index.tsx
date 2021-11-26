@@ -14,7 +14,7 @@ export const CheckboxGroup = ({ labelOn, labelOff }: Props) => {
 
   return (
     <label>
-      <input type="checkbox" checked={isChecked} onChange={onChange} />
+      <input role="input-checkbox" type="checkbox" checked={isChecked} onChange={onChange} />
       {isChecked ? labelOn : labelOff}
     </label>
   );
