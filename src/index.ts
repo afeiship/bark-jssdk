@@ -1,5 +1,5 @@
 import httpSchema from '@jswork/node-http-schema';
-import { ApiInstance, ApiHandler, InitOptions, ApiOptions, Response } from './typing';
+import { ApiInstance, ApiHandler, InitOptions, defaultApiCallback } from './typing';
 
 const options = {
   transformResponse: ({ data }) => data,
@@ -10,34 +10,32 @@ const defaults = {
   baseURL: 'https://api.day.app',
 };
 
-const defaultApiCallback: ApiHandler = (opts: ApiOptions) => Promise.resolve({} as Response);
+const API_SCHEMA = [
+  {
+    items: {
+      msg: ['post', '/{title}/{body}'],
+    },
+  },
+];
 
 export default class {
   public opts: InitOptions;
-  public api: ApiInstance = {
-    msg: defaultApiCallback,
-    message: defaultApiCallback,
-  };
+  public msg: ApiHandler = defaultApiCallback;
 
   constructor(inOptions?: InitOptions) {
     this.opts = Object.assign({}, defaults, inOptions);
     if (!this.validate()) return;
 
-    this.api = httpSchema(
+    const api: ApiInstance = httpSchema(
       {
         host: this.opts.baseURL,
         request: [`/${this.opts.sdkKey}`, 'json'],
-        items: [
-          {
-            items: {
-              msg: ['post', '/{title}'],
-              message: ['post', '/{title}/{body}'],
-            },
-          },
-        ],
+        items: API_SCHEMA,
       },
       options
     );
+
+    Object.assign(this, api);
   }
 
   public validate(): boolean | never {
