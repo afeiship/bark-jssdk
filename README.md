@@ -20,6 +20,9 @@ const sdk = new BarkJssdk({ sdkKey: 'YOUR_SDK_KEY'});
 sdk.message({ title: 'Tips', body: 'New message comming.' });
 ```
 
+## resources
+- https://github.com/Finb/Bark
+
 ## license
 Code released under [the MIT license](https://github.com/afeiship/bark-jssdk/blob/master/LICENSE.txt).
 
