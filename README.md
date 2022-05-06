@@ -13,9 +13,12 @@ npm install @jswork/bark-jssdk
 
 ## usage
 ```js
-import barkJssdk from '@jswork/bark-jssdk';
+import BarkJssdk from '@jswork/bark-jssdk';
 
-// usage goes here.
+const sdk = new BarkJssdk({ sdkKey: 'YOUR_SDK_KEY'});
+
+sdk.api.msg({ title: 'New message comming.' });
+sdk.api.message({ title: 'Tips', body: 'New message comming.' });
 ```
 
 ## license
