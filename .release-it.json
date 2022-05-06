@@ -1,0 +1,18 @@
+{
+  "git": {
+    "requireCleanWorkingDir": false
+  },
+  "hooks": {
+    "after:init": [
+      "npm run test",
+      "t2k"
+    ],
+    "after:bump": [
+      "npm run build"
+    ]
+  },
+  "github": {
+    "release": true,
+    "proxy": "http://127.0.0.1:9090"
+  }
+}
