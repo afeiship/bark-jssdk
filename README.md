@@ -22,6 +22,7 @@ sdk.message({ title: 'Tips', body: 'New message comming.' });
 
 ## resources
 - https://github.com/Finb/Bark
+- https://day.app/2021/06/barkfaq/
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/bark-jssdk/blob/master/LICENSE.txt).
