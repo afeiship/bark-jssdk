@@ -17,7 +17,7 @@ import BarkJssdk from '@jswork/bark-jssdk';
 
 const sdk = new BarkJssdk({ sdkKey: 'YOUR_SDK_KEY'});
 // send a message
-sdk.message({ title: 'Tips', body: 'New message comming.' });
+sdk.msg({ title: 'Tips', body: 'New message comming.' });
 ```
 
 ## resources
