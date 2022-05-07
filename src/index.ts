@@ -13,14 +13,14 @@ const defaults = {
 const API_SCHEMA = [
   {
     items: {
-      msg: ['post', '/{title}/{body}'],
+      notify: ['post', '/{title}/{body}'],
     },
   },
 ];
 
 export default class {
   public opts: InitOptions;
-  public msg: ApiHandler = defaultApiCallback;
+  public notify: ApiHandler = defaultApiCallback;
 
   constructor(inOptions?: InitOptions) {
     this.opts = Object.assign({}, defaults, inOptions);

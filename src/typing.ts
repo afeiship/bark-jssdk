@@ -67,7 +67,7 @@ export interface Response {
 }
 
 export interface ApiInstance {
-  msg: ApiHandler;
+  notify: ApiHandler;
 }
 
 export const defaultApiCallback: ApiHandler = (_: ApiOptions) => Promise.resolve({} as Response);
