@@ -31,7 +31,7 @@ describe('api.basic', () => {
     const sdk = new BarkJssdk();
     const result = await sdk.notify({
       title: '推送铃声',
-      body: '我会带着sound',
+      body: '我会带着sound，但我是一个测试',
       sound: IOS_SOUND.mailsent,
     });
     expect(typeof sdk.notify).toBe('function');
