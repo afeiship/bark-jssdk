@@ -1,5 +1,5 @@
 import httpSchema from '@jswork/node-http-schema';
-import { ApiInstance, ApiHandler, InitOptions, defaultApiCallback } from './typing';
+import { ApiInstance, ApiOptions, ApiHandler, InitOptions, defaultApiCallback } from './typing';
 
 const options = {
   transformResponse: ({ data }) => data,
@@ -36,6 +36,12 @@ export default class {
     );
 
     Object.assign(this, api);
+  }
+
+  public static notify(inOptions: ApiOptions): Promise<any> {
+    const { sdkKey, ...opts } = inOptions;
+    const initOpts = sdkKey ? { sdkKey } : {};
+    return new this(initOpts).notify(opts);
   }
 
   public validate(): boolean | never {

@@ -16,13 +16,23 @@ describe('api.basic', () => {
     expect(result.message).toBe('success');
   });
 
-  test.only('api: message with icon', async () => {
+  test('api: message with icon', async () => {
     const sdk = new BarkJssdk();
     const result = await sdk.notify({
       title: '提示',
       body: '这是一条来自 aric 的消息',
       icon: 'https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg',
     });
+    expect(result).toBeDefined();
+    expect(result.message).toBe('success');
+  });
+
+  test.only('api: notify by BarkJssdk.notify method', async () => {
+    const result = await BarkJssdk.notify({
+      title: '提示',
+      body: '这是一条来自 aric 的消息',
+    });
+
     expect(result).toBeDefined();
     expect(result.message).toBe('success');
   });

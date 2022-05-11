@@ -49,6 +49,7 @@ export interface InitOptions {
 export interface ApiOptions {
   title: string;
   body?: string;
+  sdkKey?: string;
   category?: string;
   automaticallyCopy?: boolean;
   copy?: string;
@@ -68,6 +69,7 @@ export interface Response {
 
 export interface ApiInstance {
   notify: ApiHandler;
+  notifyBy: ApiHandler;
 }
 
 export const defaultApiCallback: ApiHandler = (_: ApiOptions) => Promise.resolve({} as Response);

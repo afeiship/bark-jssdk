@@ -15,9 +15,17 @@ npm install @jswork/bark-jssdk
 ```js
 import BarkJssdk from '@jswork/bark-jssdk';
 
+// use instance
 const sdk = new BarkJssdk({ sdkKey: 'YOUR_SDK_KEY'});
 // notify
 sdk.notify({ title: 'Tips', body: 'New message comming.' });
+
+// OR use BarkJssdk.notify directly
+BarkJssdk.notify({
+  sdkKey: 'YOUR_SDK_KEY',
+  title: 'Tips', 
+  body: 'New message comming.'
+});
 ```
 
 ## resources
