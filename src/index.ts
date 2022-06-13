@@ -13,7 +13,7 @@ const defaults = {
 const API_SCHEMA = [
   {
     items: {
-      notify: ['post', '/{title}/{body}'],
+      notify: ['post', '/{title}'],
     },
   },
 ];

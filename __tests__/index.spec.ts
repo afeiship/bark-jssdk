@@ -33,6 +33,9 @@ describe('api.basic', () => {
       body: '这是一条来自 aric 的消息',
     });
 
+    console.log(result);
+
+
     expect(result).toBeDefined();
     expect(result.message).toBe('success');
   });
