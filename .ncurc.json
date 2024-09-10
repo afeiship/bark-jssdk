@@ -1,0 +1,5 @@
+{
+  "upgrade": true,
+  "filter": "/^@jswork|@afeiship/",
+  "registry": "https://registry.npmjs.org"
+}
