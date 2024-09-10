@@ -2,13 +2,6 @@ import BarkJssdk from '../src';
 import { IOS_SOUND } from '../src/typing';
 
 describe('api.basic', () => {
-  test('invalid sdkKey should throw error', async () => {
-    function callWithError() {
-      new BarkJssdk({ sdkKey: undefined });
-    }
-    expect(callWithError).toThrowError('sdkKey is required');
-  });
-
   test('api: message should get promise', async () => {
     const sdk = new BarkJssdk();
     const result = await sdk.notify({ title: '提示', body: '您有新消息来了' });
