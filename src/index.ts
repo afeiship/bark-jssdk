@@ -1,7 +1,9 @@
-import httpSchema from '@jswork/node-http-schema';
+import httpSchema from '@jswork/http-schema';
 import { ApiInstance, ApiOptions, ApiHandler, InitOptions, defaultApiCallback } from './typing';
+import '@jswork/next-fetch';
 
 const options = {
+  adapter: 'Fetch',
   transformResponse: ({ data }) => data,
 };
 
@@ -12,9 +14,7 @@ const defaults = {
 
 const API_SCHEMA = [
   {
-    items: {
-      notify: ['post', ''],
-    },
+    items: { notify: ['post', ''] },
   },
 ];
 
@@ -26,14 +26,14 @@ export default class {
     this.opts = Object.assign({}, defaults, inOptions);
     if (!this.validate()) return;
 
-    const api: ApiInstance = httpSchema(
+    const api = httpSchema(
       {
-        host: this.opts.baseURL,
+        baseURL: this.opts.baseURL,
         request: [`/${this.opts.sdkKey}`, 'json'],
         items: API_SCHEMA,
       },
-      options
-    );
+      options,
+    ) as ApiInstance;
 
     Object.assign(this, api);
   }

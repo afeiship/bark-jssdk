@@ -10,6 +10,7 @@
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "moduleResolution": "node",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "lib": ["es2015"]
   }
 }
